@@ -27,7 +27,7 @@ const customers = [
   },
   {
     id: 'USR-009',
-    name: 'Marcus Finn',
+    name: 'Marcus Finns',
     avatar: '/assets/avatar-9.png',
     email: 'marcus.finn@devias.io',
     phone: '415-907-2647',
