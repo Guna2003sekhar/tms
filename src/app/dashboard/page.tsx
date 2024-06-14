@@ -4,24 +4,26 @@ import Grid from '@mui/material/Unstable_Grid2';
 import dayjs from 'dayjs';
 
 import { config } from '@/config';
-import { Budget } from '@/components/dashboard/overview/budget';
+import { ApprovalsDone } from '@/components/dashboard/overview/approvals-done';
 import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
-import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
-import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
+import { PendingRequestsProgress } from '@/components/dashboard/overview/pending-requests';
+import { TotalRequests } from '@/components/dashboard/overview/total-requests';
 
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
   return (
     <Grid container spacing={3}>
-      <Grid lg={3} sm={6} xs={12}>
-        <Budget diff={12} trend="up" sx={{ height: '100%' }} value="$24k" />
+      <Grid lg={3} md={4} sm={12}>
+        <TotalRequests value="5000" />
       </Grid>
-      <Grid lg={3} sm={6} xs={12}>
-        <TotalCustomers diff={16} trend="down" sx={{ height: '100%' }} value="1.6k" />
+      &ensp; &ensp;
+      <Grid lg={3} md={4} sm={12}>
+        <ApprovalsDone value="2500" />
       </Grid>
-      <Grid lg={3} sm={6} xs={12}>
-        <TasksProgress sx={{ height: '100%' }} value={75.5} />
+      &ensp; &ensp;
+      <Grid lg={3} md={4} sm={12}>
+        <PendingRequestsProgress value="2000" />
       </Grid>
       <Grid lg={8} md={12} xs={12}>
         <LatestOrders
@@ -30,42 +32,42 @@ export default function Page(): React.JSX.Element {
               id: 'ORD-007',
               customer: { name: 'Ekaterina Tankova' },
               amount: 30.5,
-              status: 'pending',
+              status: 'Approved',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
               id: 'ORD-006',
               customer: { name: 'Cao Yu' },
               amount: 25.1,
-              status: 'delivered',
+              status: 'Approved',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
               id: 'ORD-004',
               customer: { name: 'Alexa Richardson' },
               amount: 10.99,
-              status: 'refunded',
+              status: 'Rejected',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
               id: 'ORD-003',
               customer: { name: 'Anje Keizer' },
               amount: 96.43,
-              status: 'pending',
+              status: 'Approved',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
               id: 'ORD-002',
               customer: { name: 'Clarke Gillebert' },
               amount: 32.54,
-              status: 'delivered',
+              status: 'Approved',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
             {
               id: 'ORD-001',
               customer: { name: 'Adam Denisov' },
               amount: 16.76,
-              status: 'delivered',
+              status: 'Approved',
               createdAt: dayjs().subtract(10, 'minutes').toDate(),
             },
           ]}
